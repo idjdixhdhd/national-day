@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>国庆节快乐</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #4a90e2;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        #imageContainer img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>国庆节快乐</h1>
+        <div id="imageContainer"></div>
+        <video controls autoplay>
+            <source src="national_day_video.mp4" type="video/mp4">
+            您的浏览器不支持 HTML5 视频标签。
+        </video>
+    </div>
+
+    <script>
+        // 图片数组
+        const images = [
+            'national_day_image_1.jpg',
+            'national_day_image_2.jpg',
+            'national_day_image_3.jpg'
+        ];
+
+        // 获取容器元素
+        const imageContainer = document.getElementById('imageContainer');
+
+        // 显示图片
+        function showImages() {
+            let index = 0;
+            setInterval(() => {
+                imageContainer.innerHTML = `<img src="${images[index]}">`;
+                index = (index + 1) % images.length;
+            }, 3000); // 每3秒切换一次图片
+        }
+
+        // 初始化
+        window.onload = showImages;
+    </script>
+</body>
+</html>
